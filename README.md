@@ -9,13 +9,13 @@ This project combines:
 
 ---
 
-## 🚀 Highlights
+## 🚀 Project Highlights
 
-- 🧠 **Algorithmic core**: custom graph abstraction, Dijkstra’s shortest path, and flexible routing logic.
-- 🏙 **Real-world map modeling**: campus buildings, paths, and intersections encoded as a weighted graph.
-- 🌐 **Service-oriented backend**: Java server exposing JSON APIs for route computation.
-- ⚛️ **React frontend**: interactive map UI for selecting start/end locations and visualizing computed routes.
-- 🧪 **Thorough testing & invariants**: clear representation invariants, defensive checks, and unit tests.
+- **Graph ADT and algorithm suite**: Custom graph abstraction, BFS/DFS, Dijkstra’s shortest-path, weighted graphs.  
+- **Map modelling & routing**: Real-world campus map translated into a weighted graph; shortest path queries between buildings.  
+- **Service layer**: Java backend (Spark framework) exposing REST endpoints for path-finding and map queries.  
+- **Frontend integration**: UI/client component interacts with backend to display routes, leveraging MVC pattern and JSON communication.  
+- **Engineering discipline**: Modular package architecture, representation invariants, defensive programming, unit and integration tests.
 
 ---
 
