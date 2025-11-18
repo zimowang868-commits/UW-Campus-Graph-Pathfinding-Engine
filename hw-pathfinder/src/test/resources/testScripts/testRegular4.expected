@@ -1,0 +1,11 @@
+created graph graph1
+
+added node n1 to graph1
+added node n2 to graph1
+
+added edge 999.000 from n1 to n2 in graph1
+
+path from n1 to n1:
+total cost: 0.000
+path from n2 to n2:
+total cost: 0.000

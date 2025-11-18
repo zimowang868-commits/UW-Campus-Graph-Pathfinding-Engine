@@ -1,0 +1,3 @@
+LoadGraph soccer soccerPlayersInTeams.csv
+
+FindPath soccer Gareth-Bale Luka-Modric

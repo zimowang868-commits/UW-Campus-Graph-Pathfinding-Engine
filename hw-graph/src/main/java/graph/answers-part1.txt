@@ -1,0 +1,33 @@
+## CSE 331 hw-graph Part 1 Questions
+
+## Part 1
+###########################################################################
+
+Briefly explain why you included the operations you did and why you feel they are a sufficient
+interface to a graph. If your design includes multiple classes or interfaces, explain why you
+included each one; if not, explain whether you considered additional classes and why you decided
+not to include them.
+
+I add one Node class to store the data in the node. I also add one Edge class to represent an immutable edge with a child
+node and a label for it. We should include addNode and addEdge since they will help us to build the graph. The graph also
+contains many nodes and edges if we want to remove one or more, we should include removeNode and removeEdge. We also need
+the size method where we can check how many nodes in the graph, and isEmpty method to find whether the graph has zero
+number of nodes. In addition, I add getAllEdgesFrom, getAllEdgesTO, and getChild to  find all edges from the given
+node, find all edges point to the given edge, and find all children of the given node respectively. Finally, I implement
+the checkRep method to check whether invariant holds.
+
+
+## Part 2
+###########################################################################
+
+What was your testing strategy for this assignment? How do your script tests and JUnit tests
+differ from each other (if they do), and why?
+
+There are similarities and difference with my script tests and JUnit tests. The similarities are both of tests are try
+to check whether I successfully add the edges, nodes, get edges, get the nodes, get the children. If I successfully
+to that, whether I get those correct. The difference is that I need to check the duplicates in the graph for my JUnit
+tests that I can't do in the script tests. I also check the graph with 1 node, 2 nodes with 2 edges in same direction
+or opposite directions. Those specific situation I will implement later in the Graph class will also be checked in my
+JUnit tests.
+
+

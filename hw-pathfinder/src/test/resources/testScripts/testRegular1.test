@@ -1,0 +1,14 @@
+CreateGraph graph1
+
+AddNode graph1 n1
+AddNode graph1 n2
+
+AddEdge graph1 n1 n2 16.0
+AddEdge graph1 n2 n1 12.0
+
+ListNodes graph1
+
+ListChildren graph1 n1
+ListChildren graph1 n2
+
+FindPath graph1 n1 n2

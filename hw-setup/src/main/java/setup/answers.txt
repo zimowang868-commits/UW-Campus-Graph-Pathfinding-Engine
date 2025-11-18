@@ -1,0 +1,25 @@
+## CSE 331 hw-setup Questions
+## Part 6
+
+1. Why did Fibonacci fail the testThrowsIllegalArgumentException< test? What (if anything) did
+you have to do to fix it? If you did not have to change anything to fix this issue, explain why.
+
+Since 0 is still a non-negative number. As we throw the illegal argument exception, the conditional case should be
+n < 0 but not n <= 0 in order to throw the error if we have negative number. Thus, we just need to fix
+"if (n <= 0)" to "if (n < 0)".
+
+2. Why did Fibonacci fail the testBaseCase test? What (if anything) did you have to do to fix
+it? If you did not have to change anything to fix this issue, explain why.
+
+The base case should be when do the recursive call as we get the first and second fibonacci number where n = 0
+and n = 1. Thus, the base case should be n <= 1. Thus, we need to fix "else if (n <= 2)" to "else if (n <= 1)".
+
+3.Why did Fibonacci fail the testInductiveCase test? What (if anything) did you have to do to
+fix it? If you did not have to change anything to fix this issue, explain why.
+
+Since the definition of fibonacci number is that it is the sum of two preceding ones. Thus, when we do the recursive
+call, we need to sum the numbers. We need to return "getFibTerm(n - 1) + getFibTerm(n - 2);" rather than
+"getFibTerm(n - 1) - getFibTerm(n - 2);".
+
+
+

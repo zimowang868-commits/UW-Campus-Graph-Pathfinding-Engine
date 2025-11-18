@@ -1,0 +1,15 @@
+# Create a graph
+created graph graph1
+
+# Add a pair of nodes
+added node n30 to graph1
+added node n1 to graph1
+added node abc to graph1
+added node an to graph1
+
+# Add an edge
+added edge e1 from n30 to an in graph1
+added edge e2 from abc to n1 in graph1
+
+# Print the nodes in the graph and the outgoing edges from n1
+graph1 contains: abc an n1 n30

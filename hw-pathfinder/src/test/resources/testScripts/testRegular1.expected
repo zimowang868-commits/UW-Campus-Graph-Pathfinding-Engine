@@ -1,0 +1,16 @@
+created graph graph1
+
+added node n1 to graph1
+added node n2 to graph1
+
+added edge 16.000 from n1 to n2 in graph1
+added edge 12.000 from n2 to n1 in graph1
+
+graph1 contains: n1 n2
+
+the children of n1 in graph1 are: n2(16.000)
+the children of n2 in graph1 are: n1(12.000)
+
+path from n1 to n2:
+n1 to n2 with weight 16.000
+total cost: 16.000

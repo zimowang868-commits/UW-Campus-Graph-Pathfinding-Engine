@@ -1,0 +1,61 @@
+## CSE 331 hw-graph Part 2 Questions
+
+NOTE: This file is used as part of hw-graph-part2, and is not due as part of the hw-graph-part1
+submission. You may leave it blank for hw-graph-part1.
+
+## Part 1
+###########################################################################
+
+A few examples of possible Graph representations:
+
+    A: A collection of nodes and a collection of edges.
+    B: An adjacency list, in which each node is associated with a list of its outgoing edges.
+    C: An adjacency matrix, which explicitly represents, for every pair ⟨A,B⟩ of nodes, whether there 
+       is a link from A to B, and how many.
+
+1. In two or three sentences, explain an advantage and a disadvantage of each of the
+representations listed above (for example, in terms of runtime complexity, space
+complexity, or ease of implementation).
+
+A: adv -> it is easier to implement by using collection.
+   dis-adv -> it takes more time to search the nodes and removing the nodes.
+B: adv -> it takes less time when adding nodes, especially only O(1) time to add nodes.
+   dis-adv -> it takes more time as we are removing the nodes and find the children.
+C: adv -> it takes less time when add the edges between nodes.
+   dis-adv -> it so time-consuming as we are removing the nodes, and the implementation of matrix is more complex.
+
+
+2. In two to three sentences, describe the representation you chose and explain why you
+chose it. If you chose to use a different representation than one of the three we described
+above, be sure to list its advantages and disadvantages, too.
+
+For me, I will choose the representation A. It is easier to implement if every node is corresponding
+to the edges. In A, we can use Map to store the nodes as key, and a list of edges where pointing from
+the nodes as value. Thus, it is easier to find the edges that connect with given node by just using
+map.get(). However, the runtime of removing nodes and adding edges is long. It is O(n^2). I need to
+go through each node and each edge.
+
+
+## Part 4
+###########################################################################
+
+    (Please keep your answers brief and to-the-point.)
+
+1. Describe any new tests you added and why you added them, or why you feel that your original
+tests alone are sufficient.
+
+I add new tests for check whether my delete methods successfully remove the nodes and edges.
+I also add new test for get the children of the given node and get all edges that pointing toward
+a given node.
+
+
+2. Did you make any changes to your specifications as you were implementing your Graph? (yes/no)
+If yes, describe your changes and why you made them.
+
+I removed the toString() method since I don't need to use it for debugging for print my objects out.
+I put my equals() and hashcode() methods into the Node class and Edge class but not in Graph class
+since the object I need to compare with are node and edge.
+I also add allNodes() and containsNode() method for printing the nodes in script tests.
+
+
+

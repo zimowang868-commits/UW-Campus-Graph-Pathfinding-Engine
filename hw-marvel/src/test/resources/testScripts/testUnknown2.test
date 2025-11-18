@@ -1,0 +1,3 @@
+LoadGraph soccer soccerPlayersInTeams.csv
+
+FindPath soccer Sergio-Ramos Virgil-van-Dijk

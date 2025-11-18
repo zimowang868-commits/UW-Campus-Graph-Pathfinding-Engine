@@ -1,0 +1,11 @@
+Briefly list any changes you made to your graph class during hw-marvel,
+and why you made those changes.
+
+I change the method getAllEdgeFrom(Node<T> node).
+I add a checkRep() method, and change my if statement from
+if (node == null) to if (!graph.containsKey(node)).
+The reason is that I need to check whether the node is
+in the graph otherwise I will get nullPointerException.
+I also need to checkRep() since I don't want the parameter
+null to be the null.
+

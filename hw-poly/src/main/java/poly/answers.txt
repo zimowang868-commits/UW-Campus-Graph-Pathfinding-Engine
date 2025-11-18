@@ -1,0 +1,116 @@
+## CSE 331 hw-poly Questions
+## Part 0
+###########################################################################
+
+1. Multiplication Pseudocode
+Here, we have
+r = p * q:
+set r = 0
+{inv: r = (p_0 + p_1 + p_2 + ... + p_(i - 1)) * (q_0 + q_1 + q_2 + ... + q_(j - 1))}
+foreach term, t_p, in p:
+    {inv: p = t_p0 + t_p1 + t_p2 + ... + t_p(i - 1)}
+    foreach term, t_q, in q:
+        {inv: q = t_q0 + t_q1 + t_q2 + ... + t_q(j - 1)}
+        set product_pq is the multiplication of the t_p and t_q
+        if any term t_r in r with the sum of t_r and product_pq
+            replace t_r with the sum of t_r and product_pq
+        else
+            insert product_pq into r as a new term
+        end_if
+    end_for
+end_for
+
+
+2. Division Pseudocode
+Here, we have
+p = m / n:
+set p = 0
+{inv: m = p * n + rem}
+while highest degree term in m, t_m, >= highest degree term in n, t_n:
+    set t_mn = t_m divided by t_n
+    replace p with sum of p and t_mn
+    replace m with m subtracts the multiplication of t_mn and n.
+
+
+3. Division Example: (x3 + x - 1) / (x + 1) = x2 - x + 2
+Here, we have
+m = (x3 + x - 1)
+n = (x + 1)
+p = m / n:
+set p = 0
+while highest degree term in m, t_m, >= highest degree term in n, t_n:
+    iteration1: m = (x3 + x - 1), n = (x + 1), p = 0.
+        [t_mn = t_m / t_n => t_mn = x2]
+        [p = p + t_mn => p = x2]
+        [m = m - t_mn * n => m = -x2 + x - 1]
+    iteration2: m = (-x2 + x - 1), n = (x + 1), p = x2.
+        [t_mn = t_m / t_n => t_mn = -x]
+        [p = p + t_mn => p = x2 - x]
+        [m = m - t_mn * n => m = 2x - 1]
+    iteration3: m = (2x - 1), n = (x + 1), p = x2 - x.
+        [t_mn = t_m / t_n => t_mn = 2]
+        [p = p + t_mn => p = x2 - x + 2]
+        [m = m - t_mn * n => m = -3]
+
+We find that t_m < t_n.
+Thus, we prove that p = x2 - x + 2, and the remainder is -3.
+
+
+## Part 1
+###########################################################################
+
+1. Weakened Rep Invariant
+We need to change the constructor, equals(), toString(), and hashCode(). We need to delete gcd in constructor
+since we don't need the reduced form. We also need to add gcd in equals(), toString(), and hashCode() to ensure we
+get the correct form. It will reduce the efficiency since we have more gcd and we have more loops.
+
+
+2. Alternate add, sub, mul, div
+Since there are no @modifies comments in spec for methods add, sub, mul, and div, change code here will violate the
+requirement by modify the numbers. By mutate the numbers, it also violates the class requirement that RatNum is an
+immutable rational number.
+
+
+3. Constructor checkReps
+The methods in the class can't change the object of the parameters. Thus, we can't change the values of instances.
+As a result, if we meet the requirement for rep variant, it is sufficient for us to call the checkRep at the end of
+the constructor.
+
+
+## Part 2
+###########################################################################
+
+1. Calls to checkRep in RatTerm
+I add the checkRep() method at the end of the constructor. Since we don't have mutator methods in our class and the final
+we use to declare the variables, we won't violate the requirements as long as there is no rep invariants in constructor.
+As a result, we only need to check rep in constructor.
+
+
+2. Weakened Rep Invariant
+We delete checking statement in the constructor which made the constructor less complex. We also need to add the checkings
+in toString(), equals(), and add() methods since we need to check the objects whether is it is RatTerm.ZERO, that is if
+both coefficients are RatTerm.ZERO, they must be same. By adding the checkings, we have more branches of code and we get
+more complex.
+
+
+3. Alternate Rep Invariant
+We need to change the checkRep() and the constructor. In constructor, we need add some branches of code for checking the
+expt to be 0 and the coeff to be NaN. In checkRep(), we need a stronger rep invariant. So we need more time to do that,
+and our code get more complex.
+
+
+## Part 3
+###########################################################################
+
+1. Calls to checkRep in RatPoly
+I only include checkRep() at constructor. Since we don't have mutator methods in our class and the final we use to declare
+the variables, we won't violate the requirements as long as there is no rep invariants in constructor. As a result, we
+only need to check rep in constructor.
+
+
+2. Alternate Representation
+Advantage: may let us easier to keep track the special case like coeff is 0, expt is 0, coeff is NaN etc. We just need to
+use list.contains() to do the check. Disadvantage: we need to handle 2 structures at one time. So it is a little more
+complex for our brain to think how to make the two loops synchronized as we keep tracking.
+
+
